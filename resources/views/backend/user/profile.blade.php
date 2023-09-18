@@ -1,49 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+</head>
+<body>
+
+
 @extends('backend.layouts.app')
 @section('content')
 
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <div class="container py-5">
+        <div class="row">
+          <div class="col">
 
-    <section class="content">
-        <div class="container-fluid">
+          </div>
+        </div>
 
-                <div class="card">
-                  <div class="card-header text-muted border-bottom-0">
-          <h1 class="text-center">Profile</h1>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                  class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3">{{ Auth::user()->name }} {{ Auth::user()->prenom }} </h5>
+
+                <p class="text-muted mb-4">{{ Auth::user()->poste }} </p>
+
+              </div>
+            </div>
 
 
+              </div>
+
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Nom complet</p>
                   </div>
-                  <div class="card-body">
-                    <i class="fas fa-user"></i>
-
-                        <address>
-                        <h4><b>Nom :</b>{{ Auth::user()->name }}</h4>
-                        <h4><b>Prenom :</b> {{ Auth::user()->prenom }}</h4>
-                        <h4><b>Date de Naissance :</b>{{ Auth::user()->date_naiss }}</h4>
-                        <h4><b>Lieu de Naissance :</b>{{ Auth::user()->lieu_naiss }}</h4>
-                        <h4><b>Genre :</b>{{ Auth::user()->genre }}</h4>
-                        <h4><b>Adresse :</b>{{ Auth::user()->adresse }}</h4>
-                        <h4><b>Adresse email :</b>{{ Auth::user()->email }}</h4>
-                        <h4><b>Date d'embauche :</b>{{ Auth::user()->date_entrer }}</h4>
-                        <h4><b>Poste :</b>{{ Auth::user()->poste }}</h4>
-                        <h4><b>Type de contrat :</b>{{ Auth::user()->contrat }}</h4>
-                    </address>
-
-
-
-                    </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{ Auth::user()->name }} {{ Auth::user()->prenom }} </p>
                   </div>
-                  <div class="card-footer">
-                    <div class="text-right">
-
-
-                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Email</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{ Auth::user()->email }} </p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Phone</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">+223 94 98 72 72</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">poste</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{ Auth::user()->poste }}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Adresse</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{ Auth::user()->adresse }} </p>
                   </div>
                 </div>
               </div>
-        <!-- /.container-fluid -->
-      </section>
-  </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card mb-4 mb-md-0">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
 @endsection
+</html>

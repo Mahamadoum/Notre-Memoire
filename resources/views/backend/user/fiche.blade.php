@@ -15,19 +15,23 @@
         <section class="content">
 
           <div class="row">
-            <div class="col-lg10 mt-4 ml-5 ">
+            <div class="col-sm-12 mt-4">
              <div class="card">
                 <div class="card-body">
 
               <!-- Main content -->
               <div class="invoice p-3 mb-3">
                 <!-- title row -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="{{asset('backend/dist/img/favicon.png')}}" style="width: 80px;"><br>
+                    </div>
 
                   <div class="col-sm-12">
                     <h4 class="text-center">
-                    Bulletin de salaire
-                    </h4><br><br>
-
+                    BULLETIN DE SALAIRE
+                    </h4><br>
+                </div>
                   <!-- /.col -->
                 </div>
                 <!-- info row -->
@@ -35,11 +39,13 @@
                   <div class="col-sm-4 invoice-col">
 
                     <address>
+
+
                       <strong>INTEC-SUP</strong><br>
                     <b>Adresse:</b> Bamako,ACI 2000 <br>
                      Près de bougie ba<br>
-                    <b>Tel: </b> +223 90 00 00 00<br>
-                    <b>Email: </b>Intec-sup@gmail.com
+                    <b>Tel: </b> (+223) 78780202 / 68880202<br>
+                    <b>Email: </b>Intecsup@intec-sup.com
 
                     </address>
                   </div>
@@ -85,9 +91,11 @@
                             <th>Poste </th>
                             <td>{{ $edit->poste }}</td>
                           </tr>
+                          @if($edit->poste=='Enseignant')
                         <tr>
 
-                        <th style="width:50%">Taux </th>
+
+                        <th style="width:50%">Taux horaire </th>
                           <td>{{ $edit->t_horaire }} Fcfa</td>
                         </tr>
                         <tr>
@@ -99,6 +107,14 @@
                           <th>Salaire </th>
                           <td>{{ $edit->salaire }} Fcfa</td>
                         </tr>
+@endif
+                        @if($edit->poste!='Enseignant')
+
+<tr>
+    <th>Salaire </th>
+    <td>{{ $edit->salaire_bs }} Fcfa</td>
+  </tr>
+  @endif
 
                             <tr>
                                 <th>Fait le </th>
@@ -132,12 +148,7 @@
 </div>
 <section>
 </html>
-
-
-
-
-
-    @endsection
+@endsection
 
 
 

@@ -10,7 +10,7 @@
         <div class="col-lg-10 mt-5">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">NOUVEL EMPLOYE</h3>
+                    <h5 class="card-title">Nouveau poste</h5>
                 </div>
             <div class="card-body">
                 <form role="form"action="{{ URL::to('/insert-user')}}"enctype="multipart/form-data"method="post">
@@ -46,18 +46,6 @@
                     <input type="text" class="form-control"name="adresse"placeholder="" required >
                     </div>
                 </div>
-                <div class="form-group row">
-                <label for="name"class="col-sm-2 col-form-label">Poste<span style="color:rgb(224, 73, 93)">  *</span> </label>
-                <div class="col-sm-10">
-               <select type="text" class="form-control"name="poste"default="" required>
-                @foreach (DB::table('poste')->get() as $row )
-                <option value="{{$row->nom_poste}}">{{ $row->nom_poste}}</option>
-                @endforeach
-
-             </select>
-        </div>
-    </div>
-
                     <div class="form-group row">
                         <label for="name"class="col-sm-2 col-form-label">Date de Naissance<span style="color:rgb(224, 73, 93)">  *</span></label>
                         <div class="col-sm-10">
@@ -87,12 +75,12 @@
                     <input type="email" class="form-control"name="email"placeholder="entrez l'adresse email" required>
                     </div>
                    </div>
-                   {{-- <div class="form-group row">
+                   <div class="form-group row">
                     <label for="name"class="col-sm-2 col-form-label">Poste<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <input type="text" class="form-control"name="poste"placeholder="entrez le poste de l'employé" required>
                     </div>
-                   </div> --}}
+                   </div>
                    <div class="form-group row">
                     <label for="name"class="col-sm-2 col-form-label">Numero d'immatriculation<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
@@ -157,7 +145,6 @@
 
 
 </div>
-{!! Toastr::message() !!}
 @endif
 
 @endsection

@@ -16,20 +16,20 @@
                 <form role="form" action="{{URL::to('/update-user/'.$edit->id)}}" method="post">
                 @csrf
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Nom de l'employe</label>
+                    <label for="name"class="col-sm-2 col-form-label">Nom de l'employe<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <input type="text" class="form-control"name="name"placeholder="entrez le nom de l'employer"value="{{ $edit->name }}">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Prenom</label>
+                    <label for="name"class="col-sm-2 col-form-label">Prenom<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <input type="text" class="form-control"name="prenom"placeholder="prenom"value="{{ $edit->prenom }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Genre</label>
+                    <label for="name"class="col-sm-2 col-form-label">Genre<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <select type="text" class="form-control"name="genre" >
                         <option value="Homme" {{'Homme' == $edit->genre ? 'selected' : ''}}>Homme</option>
@@ -38,46 +38,52 @@
                     </div>
                 </div>
                     <div class="form-group row">
-                        <label for="name"class="col-sm-2 col-form-label">Adresse</label>
+                        <label for="name"class="col-sm-2 col-form-label">Adresse<span style="color:rgb(224, 73, 93)">  *</span></label>
                         <div class="col-sm-10">
                         <input type="text" class="form-control"name="adresse"placeholder="adresse"value="{{ $edit->adresse}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="name"class="col-sm-2 col-form-label">Date de naissance</label>
+                        <label for="name"class="col-sm-2 col-form-label">Date de naissance<span style="color:rgb(224, 73, 93)">  *</span></label>
                         <div class="col-sm-10">
                         <input type="date" class="form-control"name="date_naiss"placeholder=""value="{{ $edit->date_naiss }}">
                         </div>
 
                 </div>
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">lieu de naissance</label>
+                    <label for="name"class="col-sm-2 col-form-label">lieu de naissance<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <input type="text" class="form-control"name="lieu_naiss"placeholder="ex:bamako"value="{{ $edit->lieu_naiss }}">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Adresse email</label>
+                    <label for="name"class="col-sm-2 col-form-label">Adresse email<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <input type="email" class="form-control"name="email"placeholder="entrez l'adresse email"value="{{ $edit->email }}" >
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Numero d'immatriculation</label>
+                    <label for="name"class="col-sm-2 col-form-label">Numero d'immatriculation<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <input type="text" class="form-control"name="num"placeholder=""value="{{ $edit->num }}" >
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Poste</label>
+                    <label for="name"class="col-sm-2 col-form-label">Poste<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
-                    <input type="text" class="form-control"name="poste"placeholder="entrez le poste de l'employe"value="{{ $edit->poste }}" >
+                    <select type="text" class="form-control"name="poste"default="" required>
+                        @foreach (DB::table('poste')->get() as $row )
+                        <option value="{{$row->nom_poste}}"{{'$row->nom_poste' == $edit->poste ? 'selected' : ''}}>{{ $row->nom_poste}}</option>
+                        @endforeach
+                     </select>
+
+
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Type de contrat</label>
+                    <label for="name"class="col-sm-2 col-form-label">Type de contrat<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <select type="text" class="form-control"name="contrat" >
                         <option value="CDI" {{'CDI' == $edit->contrat ? 'selected' : ''}}>CDI</option>
@@ -86,13 +92,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Mot de passe</label>
+                    <label for="name"class="col-sm-2 col-form-label">Mot de passe<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <input type="password" class="form-control"name="password"placeholder="entrez le mot de passe" value="{{ $edit->password }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Role</label>
+                    <label for="name"class="col-sm-2 col-form-label">Role<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <select type="text" class="form-control"name="role" >
                         <option value="Admin" {{'Admin' == $edit->role ? 'selected' : ''}}>Admin</option>
@@ -101,7 +107,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name"class="col-sm-2 col-form-label">Date d'entrée</label>
+                    <label for="name"class="col-sm-2 col-form-label">Date d'entrée<span style="color:rgb(224, 73, 93)">  *</span></label>
                     <div class="col-sm-10">
                     <input type="date" class="form-control"name="date_entrer"placeholder=""value="{{ $edit->date_entrer}}">
                     </div>

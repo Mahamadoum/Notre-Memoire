@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use App\Http\Controllers\Auth\Request;
 
 return [
 
@@ -154,6 +155,11 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+    'providers' => [
+        // ...
+        Brian2694\Toastr\ToastrServiceProvider::class,
+    ],
+
 
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
@@ -163,6 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
+
+            // ...
+          //  Brian2694\Toastr\ToastrServiceProvider::class,
+
+
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -180,9 +191,16 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+    'aliases' => [
+        // ...
+        'Toastr' => Brian2694\Toastr\Facades\Toastr::class,
+    ],
+
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+
+
     ])->toArray(),
 
 ];

@@ -18,16 +18,19 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('lieu_naiss');
             $table->string('num');
-            $table->integer('contrat');
-            $table->integer('poste');
-            $table->integer('genre');
+
+            $table->string('contrat');
+            $table->string('poste');
+            $table->string('genre');
             $table->string('email');
-            $table->integer('t_horaire');
-            $table->integer('nbheure');
+            $table->integer('t_horaire')->nullable();
+            $table->integer('nbheure')->nullable();
             $table->string('mois');
+            $table->string('annee');
             $table->date('ddb');
             $table->date('ddf');
             $table->string('salaire')->nullable();
+            $table->string('salaire_bs')->nullable();
             $table->date('date_entrer');
 
 

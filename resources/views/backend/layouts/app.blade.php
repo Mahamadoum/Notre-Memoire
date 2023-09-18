@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,8 +135,22 @@
       });
     });
   </script>
+  <!--Notification-->
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<!-- Initialiser Toastr -->
+<script>
+    toastr.options = {
+        "closeButton": true,
+        "positionClass": "toast-top-right",
+        "progressBar": true,
+    }
+</script>
 
 
 </body>
 </html>
+
 

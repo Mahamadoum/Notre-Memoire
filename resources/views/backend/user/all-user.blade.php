@@ -20,12 +20,14 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                      <th>ID</th>
+                      <th>#</th>
                       <th>NOM</th>
                       <th>Prenom</th>
                       <th>Email</th>
                       <th>Adresse</th>
                       <th>poste</th>
+                      <th>PHOTO</th>
+                      <th>Role</th>
                       <th>ACTION</th>
                     </tr>
                     </thead>
@@ -33,18 +35,28 @@
                         @foreach ($all as $key=>$row )
                          <tr>
                           <td>{{ $key+1 }}</td>
-                          <td>{{ $row->name }}</td>
+
+                          <td>{{ $row->name}}</td>
                           <td>{{ $row->prenom }}</td>
                           <td>{{ $row->email }}</td>
                           <td>{{ $row->adresse }}</td>
                           <td>{{ $row->poste }}</td>
 
-                         </td>
+
+                          <td>
+
+                                    <img src="{{  $row->avatar ??'null' }}" class="img-size-50 mr-4 img-circle"
+                                    alt="Avatar">
+
+                          </td>
+                          <td>{{ $row->role }}</td>
+
+
 
                          <td>
-                            <a class="btn btn-info" href="{{ URL::to('/edit-user/'.$row->id) }}"><i class="fa fa-edit"></i></a>
-                            <a class="btn btn-danger" href="{{ URL::to('/delete-user/'.$row->id) }}">    <i class="fas fa-trash-alt"></i></a>
-                            <a class="btn btn-success" href="{{ URL::to('/paie-add/'.$row->id)}}"> <i class="fas fa-copy"></i></a>
+                            <a class="btn btn-info" href="{{ URL::to('/edit-user/'.$row->id) }}"title="Modifier"><i class="fa fa-edit"title="Modifier"></i></a>
+                            <a class="btn btn-danger" href="{{ URL::to('/delete-user/'.$row->id) }}"title="Supprimer"><i class="fas fa-trash-alt"title="Supprimer"></i></a>
+                            <a class="btn btn-success" href="{{ URL::to('/paie-add/'.$row->id)}}"title="creer bulletin"> <i class="fas fa-copy" title="creer bulletin"></i></a>
 
                          </td>
 
@@ -54,12 +66,14 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
+                            <th>#</th>
                             <th>NOM</th>
                             <th>Prenom</th>
                             <th>Email</th>
                             <th>Adresse</th>
                             <th>Poste</th>
+                            <th>photo</th>
+                            <th>role</th>
                             <th>ACTION</th>
                           </tr>
                     </tfoot>
@@ -76,5 +90,6 @@
         <!-- /.container-fluid -->
       </section>
   </div>
+  {!! Toastr::message() !!}
   @endif
 @endsection

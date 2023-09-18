@@ -88,8 +88,8 @@
                                              </td>
 
                                              <td>
-                                                <a class="btn btn-info" href="{{ URL::to('/fiche/'.$row->id) }}"><i class="fas fa-eye"></i></a>
-                                                <a class="btn btn-warning" href="{{ URL::to('/fiche_print/'.$row->id) }}"><i class="fas fa-print"></i></a>
+                                                <a class="btn btn-info" href="{{ URL::to('/fiche/'.$row->id) }}"><i class="fas fa-eye"title="consulter"></i></a>
+                                                <a class="btn btn-warning" href="{{ URL::to('/fiche_print/'.$row->id) }}"><i class="fas fa-print"title="imprimer"></i></a>
 
                                              </td>
 

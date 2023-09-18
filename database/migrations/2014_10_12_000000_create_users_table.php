@@ -9,6 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -19,13 +20,14 @@ return new class extends Migration
             $table->string('contrat')->nullable();
             $table->string('adresse')->nullable();
             $table->string('poste')->nullable();
-            $table->string('num')->unique();
+            $table->string('avatar')->nullable();
+            $table->string('num')->unique()->nullable();
             $table->date('date_naiss')->nullable();
             $table->string('lieu_naiss')->nullable();
             $table->string('email')->unique();
             $table->string('role')->default('aucun');
-           $table->date('date_entrer')->nullable();
-           $table->date('email_verified_at')->nullable();
+            $table->date('date_entrer')->nullable();
+            $table->date('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

@@ -18,10 +18,8 @@
   <link rel="stylesheet" href="{{asset('backend/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('backend/dist/css/adminlte.min.css')}}">
 </head>
-
-  <!-- Main Sidebar Container
 <body class="hold-transition white-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper"> -->
+<div class="wrapper">
     <!--ChartJs-->
     <script src="{{asset('backend/plugins/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
@@ -38,7 +36,9 @@
 
   <!-- Navbar -->
  @include('backend.layouts.navbar')
-  <!-- /.na-->
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
   @include('backend.layouts.sidebar')
 
   @yield('content')
@@ -134,7 +134,7 @@
       });
     });
   </script>
-   <script>
+  <script>
     $(function () {
 
 
@@ -154,7 +154,7 @@
         datasets: [
           {
             data: [{{ $cdd }},{{ $cdi }}],
-            backgroundColor : ['#f56954', '#00a65a'],
+            backgroundColor : ['#ced4da', '#007bff'],
           }
         ]
       }
@@ -183,7 +183,7 @@
         datasets: [
           {
             data: [{{ $hm }},{{ $fm }}],
-            backgroundColor : ['#17a2b8', '#fd7e14'],
+            backgroundColor : ['#ced4da', '#007bff'],
           }
         ]
       };
@@ -253,7 +253,7 @@
     //--------------
 
     // Get context with jQuery - using jQuery's .get() method.
-    var areaChartCanvas = $('#areaChart').get(2).getContext('2d')
+    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
 
     var areaChartData = {
@@ -327,6 +327,240 @@
       data: lineChartData,
       options: lineChartOptions
     })
+    var $salesChart = $('#saleschart')
+  // eslint-disable-next-line no-unused-vars
+  var salesChart = new Chart($salesChart, {
+    type: 'bar',
+    data: {
+      labels: ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+      datasets: [
+        {
+          backgroundColor: '#007bff',
+          borderColor: '#007bff',
+          data: [1000, 2000, 3000, 2500, 2700, 2500, 3000]
+        },
+        {
+          backgroundColor: '#ced4da',
+          borderColor: '#ced4da',
+          data: [700, 1700, 2700, 2000, 1800, 1500, 2000]
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: true,
+      tooltips: {
+        mode: mode,
+        intersect: intersect
+      },
+      hover: {
+        mode: mode,
+        intersect: intersect
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          // display: false,
+          gridLines: {
+            display: true,
+            lineWidth: '4px',
+            color: 'rgba(0, 0, 0, .2)',
+            zeroLineColor: 'transparent'
+          },
+          ticks: $.extend({
+            beginAtZero: true,
+
+            // Include a dollar sign in the ticks
+            callback: function (value) {
+              if (value >= 1000000) {
+                value /= 1000000
+                value += 'M'
+              }
+
+              return value + 'M'
+            }
+          }, ticksStyle)
+        }],
+        xAxes: [{
+          display: true,
+          gridLines: {
+            display: false
+          },
+          ticks: ticksStyle
+        }]
+      }
+    }
+  })
+
+
+
+</script>
+<script>
+
+$(function () {
+  'use strict'
+
+  var ticksStyle = {
+    fontColor: '#495057',
+    fontStyle: 'bold'
+  }
+
+  var mode = 'index'
+  var intersect = true
+
+  var $salesChart = $('#sales-chart')
+  // eslint-disable-next-line no-unused-vars
+  var salesChart = new Chart($salesChart, {
+    type: 'bar',
+    data: {
+      labels: ['Janvier','Fevrier','Mars','Avril','Mai','Juin', 'Jullet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+      datasets: [
+        {
+          backgroundColor: '#007bff',
+          borderColor: '#007bff',
+          data: [1000, 2000, 3000, 2500, 2700, 2500, 3000,1000, 2000, 3000, 2500, 2700, 2500, 3000]}],
+
+        {
+          backgroundColor: '#ced4da',
+          borderColor: '#ced4da',
+          data: [7000, 1700, 2700, 2000, 1800, 1500, 2000,700, 1700, 2700, 2000, 1800, 1500, 2000]
+        }
+
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips: {
+        mode: mode,
+        intersect: intersect
+      },
+      hover: {
+        mode: mode,
+        intersect: intersect
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          // display: false,
+          gridLines: {
+            display: true,
+            lineWidth: '4px',
+            color: 'rgba(0, 0, 0, .2)',
+            zeroLineColor: 'transparent'
+          },
+          ticks: $.extend({
+            beginAtZero: true,
+
+            // Include a dollar sign in the ticks
+            callback: function (value) {
+              if (value >= 1000) {
+                value /= 1
+                value += ' K'
+
+              }
+
+
+
+              return value + ' '
+            }
+          }, ticksStyle)
+        }],
+        xAxes: [{
+          display: true,
+          gridLines: {
+            display: false
+          },
+          ticks: ticksStyle
+        }]
+      }
+    }
+  })
+
+
+
+
+
+  var $visitorsChart = $('#visitors-chart')
+  // eslint-disable-next-line no-unused-vars
+  var visitorsChart = new Chart($visitorsChart, {
+    data: {
+      labels: ['18th', '20th', '22nd', '24th', '26th', '28th', '30th'],
+      datasets: [{
+        type: 'line',
+        data: [100, 120, 170, 167, 180, 177, 160],
+        backgroundColor: 'transparent',
+        borderColor: '#007bff',
+        pointBorderColor: '#007bff',
+        pointBackgroundColor: '#007bff',
+        fill: false
+        // pointHoverBackgroundColor: '#007bff',
+        // pointHoverBorderColor    : '#007bff'
+      },
+      {
+        type: 'line',
+        data: [60, 80, 70, 67, 80, 77, 100],
+        backgroundColor: 'tansparent',
+        borderColor: '#ced4da',
+        pointBorderColor: '#ced4da',
+        pointBackgroundColor: '#ced4da',
+        fill: false
+        // pointHoverBackgroundColor: '#ced4da',
+        // pointHoverBorderColor    : '#ced4da'
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips: {
+        mode: mode,
+        intersect: intersect
+      },
+      hover: {
+        mode: mode,
+        intersect: intersect
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          // display: false,
+          gridLines: {
+            display: true,
+            lineWidth: '4px',
+            color: 'rgba(0, 0, 0, .2)',
+            zeroLineColor: 'transparent'
+          },
+          ticks: $.extend({
+            beginAtZero: true,
+            suggestedMax: 200
+          }, ticksStyle)
+        }],
+        xAxes: [{
+          display: true,
+          gridLines: {
+            display: false
+          },
+          ticks: ticksStyle
+        }]
+      }
+    }
+  })
+})
+</script>
+<!--Notification-->
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<!-- Initialiser Toastr -->
+<script>
+toastr.options = {
+"closeButton": true,
+"positionClass": "toast-top-right",
+"progressBar": true,
+}
 </script>
 
 </body>

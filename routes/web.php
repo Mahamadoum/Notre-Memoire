@@ -30,6 +30,9 @@ Route::get('/all-user', [App\Http\Controllers\backend\UserController::class, 'Al
 
 Route::get('/adduser-index', [App\Http\Controllers\backend\UserController::class, 'Adduserindex'])->name('adduserindex');
 Route::post('/insert-user', [App\Http\Controllers\backend\UserController::class, 'Insertuser'])->name('insertuser');
+
+Route::get('/addposte-index', [App\Http\Controllers\backend\UserController::class, 'Addposteindex'])->name('addposteindex');
+Route::post('/insert-poste', [App\Http\Controllers\backend\UserController::class, 'Insertposte'])->name('insertposte');
 //modifier les information
 Route::get('/edit-user/{id}', [App\Http\Controllers\backend\UserController::class, 'Edituser'])->name('Edituser');
 Route::post('/update-user/{id}', [App\Http\Controllers\backend\UserController::class, 'Updateuser'])->name('Updateuser');

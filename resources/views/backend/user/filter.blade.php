@@ -34,19 +34,19 @@
 
                                         <select type="text" class="form-control"name="mois">
                                            <div class="col-sm-2">
-                                           <option value="">Mois de :</option>
-                                           <option value="janvier">Janvier</option>
-                                           <option value="fevrier">Fevrier</option>
-                                           <option value="mars">Mars</option>
-                                           <option value="avril">Avril</option>
-                                           <option value="mai">Mai</option>
-                                           <option value="juin">Juin</option>
-                                           <option value="juillet">Juillet</option>
-                                           <option value="aout">Aout</option>
-                                           <option value="septembre">Septembre</option>
-                                           <option value="octobre">Octobre</option>
-                                           <option value="novembre">Novembre</option>
-                                           <option value="decembre">Decembre</option>
+                                            <option value="">Mois de :</option>
+                                            <option value="01">Janvier</option>
+                                            <option value="02">Fevrier</option>
+                                            <option value="03">Mars</option>
+                                            <option value="04">Avril</option>
+                                            <option value="05">Mai</option>
+                                            <option value="06">Juin</option>
+                                            <option value="07">Juillet</option>
+                                            <option value="08">Aout</option>
+                                            <option value="09">Septembre</option>
+                                            <option value="10">Octobre</option>
+                                            <option value="11">Novembre</option>
+                                            <option value="12">Decembre</option>
                                        </select>
                                    </div>
                                     <div class="col-sm-2">
@@ -88,8 +88,8 @@
                                              </td>
 
                                              <td>
-                                                <a class="btn btn-info" href="{{ URL::to('/fiche/'.$row->id) }}"><i class="fas fa-eye"></i></a>
-                                                <a class="btn btn-warning" href="{{ URL::to('/fiche_print/'.$row->id) }}"><i class="fas fa-print"></i></a>
+                                                <a class="btn btn-info" href="{{ URL::to('/fiche/'.$row->id) }}"><i class="fas fa-eye" title="consulter"></i></a>
+                                                <a class="btn btn-warning" href="{{ URL::to('/fiche_print/'.$row->id) }}"><i class="fas fa-print"title="Imprimer"></i></a>
 
                                              </td>
 
